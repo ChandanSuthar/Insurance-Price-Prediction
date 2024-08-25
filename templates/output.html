@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h1>Form Submission Result</h1>
+        <div class="card">
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>BMI:</strong> {{ bmi }}</p>
+            <p><strong>Number of Children:</strong> {{ child }}</p>
+            <p><strong>Gender:</strong> {{ 'Male' if gender_male == 1 else 'Female' }}</p>
+            <p><strong>Smoker:</strong> {{ 'Yes' if smoker_yes == 1 else 'No' }}</p>
+            <p><strong>Region:</strong> 
+                {% if region_northwest %}
+                    Northwest
+                {% elif region_southeast %}
+                    Southeast
+                {% elif region_southwest %}
+                    Southwest
+                {% else %}
+                    Not Specified
+                {% endif %}
+            </p>
+            <p><strong>Insurance Charges:</strong> Rs.{{ insurance_charges }}</p>
+        </div>
+
+        <a href="{{ url_for('project_form') }}" class="button">Back to Form</a>
+    </div>
+</body>
+</html>

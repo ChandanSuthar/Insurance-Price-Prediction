@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+<body>
+    <div class="form">
+        <h1>Enter Your Details</h1>
+        <form action="{{ url_for('prediction') }}" method="POST">
+            <p>
+                <label for="age">Age:</label>
+                <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    placeholder="Enter your age"
+                    autocomplete="on"
+                    required
+                    class="input"
+                />
+            </p>
+            
+            <p>
+                <label for="bmi">BMI:</label>
+                <input
+                    type="number"
+                    name="bmi"
+                    id="bmi"
+                    step="1"
+                    placeholder="Enter your BMI"
+                    autocomplete="on"
+                    required
+                    class="input"
+                />
+            </p>
+            
+            <p>
+                <label for="child">Number of Children:</label>
+                <input
+                    type="number"
+                    name="child"
+                    id="child"
+                    placeholder="Enter number of children"
+                    autocomplete="on"
+                    class="input"
+                />
+            </p>
+
+            <p>
+                <label>Gender:</label>
+                <input type="radio" name="gender" id="gender_male" value="Male" />
+                <label for="gender_male">Male</label>
+                <input type="radio" name="gender" id="gender_female" value="Female" />
+                <label for="gender_female">Female</label>
+            </p>
+
+            <p>
+                <label>Smoker:</label>
+                <input type="radio" name="smoker" id="smoker_yes" value="1" />
+                <label for="smoker_yes">Yes</label>
+                <input type="radio" name="smoker" id="smoker_no" value="0" />
+                <label for="smoker_no">No</label>
+            </p>
+
+            <p>
+                <label>Region:</label>
+                <input type="radio" name="region" id="region_northwest" value="northwest" />
+                <label for="region_northwest">Northwest</label>
+                <input type="radio" name="region" id="region_southeast" value="southeast" />
+                <label for="region_southeast">Southeast</label>
+                <input type="radio" name="region" id="region_southwest" value="southwest" />
+                <label for="region_southwest">Southwest</label>
+            </p>
+
+            <button type="submit" class="button">
+                <p class="text">Submit</p>
+            </button>
+        </form>
+    </div>
+</body>
+</html>
